@@ -1,0 +1,115 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.pvz"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:4:5-67
+11-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:4:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/9.2.1/transforms/e3c0bbe92ddfef658196dc2e82d384c3/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+14        android:name="com.example.pvz.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/9.2.1/transforms/e3c0bbe92ddfef658196dc2e82d384c3/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/9.2.1/transforms/e3c0bbe92ddfef658196dc2e82d384c3/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.example.pvz.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/9.2.1/transforms/e3c0bbe92ddfef658196dc2e82d384c3/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/9.2.1/transforms/e3c0bbe92ddfef658196dc2e82d384c3/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:6:5-42:19
+20        android:allowBackup="true"
+20-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:7:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/9.2.1/transforms/e3c0bbe92ddfef658196dc2e82d384c3/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+22        android:debuggable="true"
+23        android:extractNativeLibs="true"
+24        android:icon="@mipmap/ic_launcher"
+24-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:8:9-43
+25        android:label="@string/app_name"
+25-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:9:9-41
+26        android:theme="@style/Theme.PvZ" >
+26-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:10:9-41
+27        <activity
+27-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:12:9-20:20
+28            android:name="com.example.pvz.IntroActivity"
+28-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:13:13-42
+29            android:exported="true"
+29-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:14:13-36
+30            android:screenOrientation="landscape" >
+30-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:15:13-50
+31            <intent-filter>
+31-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:16:13-19:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:17:17-69
+32-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:17:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:18:17-77
+34-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:18:27-74
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:22:9-25:53
+38            android:name="com.example.pvz.MenuActivity"
+38-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:23:13-41
+39            android:exported="true"
+39-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:24:13-36
+40            android:screenOrientation="landscape" />
+40-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:25:13-50
+41        <activity
+41-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:27:9-30:53
+42            android:name="com.example.pvz.MainActivity"
+42-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:28:13-41
+43            android:exported="true"
+43-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:29:13-36
+44            android:screenOrientation="landscape" />
+44-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:30:13-50
+45        <activity
+45-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:32:9-35:53
+46            android:name="com.example.pvz.SelectMapActivity"
+46-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:33:13-46
+47            android:exported="true"
+47-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:34:13-36
+48            android:screenOrientation="landscape" />
+48-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:35:13-50
+49        <activity
+49-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:37:9-40:53
+50            android:name="com.example.pvz.ShopActivity"
+50-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:38:13-41
+51            android:exported="true"
+51-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:39:13-36
+52            android:screenOrientation="landscape" />
+52-->/workspaces/Buba/PvZ_Game/app/src/main/AndroidManifest.xml:40:13-50
+53
+54        <provider
+54-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+56            android:authorities="com.example.pvz.androidx-startup"
+56-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+57            android:exported="false" >
+57-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+58            <meta-data
+58-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+59-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+60                android:value="androidx.startup" />
+60-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/e6a2d7019bdff1278fb65dc20693791d/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/codespace/.gradle/caches/9.2.1/transforms/02155a2741a6d74751c4ac6df790ae08/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/codespace/.gradle/caches/9.2.1/transforms/02155a2741a6d74751c4ac6df790ae08/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/codespace/.gradle/caches/9.2.1/transforms/02155a2741a6d74751c4ac6df790ae08/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+64        </provider>
+65    </application>
+66
+67</manifest>
