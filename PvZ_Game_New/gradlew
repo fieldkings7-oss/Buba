@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-APP_NAME="Gradle"
-APP_HOME="$(cd "$(dirname "$0")" && pwd -P)" || exit
-exec "$APP_HOME/gradle" "$@"
