@@ -8,6 +8,8 @@ drawable map_card
 drawable menu_bg
 drawable peashooter
 drawable peashooter_shoot
+drawable pibby_card
+drawable pibby_peashoter
 drawable prepared_yard_bg
 drawable prepared_yard_card
 drawable shop_bg
@@ -21,6 +23,8 @@ id button_default_map
 id button_prepared_yard
 id close_button
 id coins_display
+id pibby_button
+id pibby_image
 id play_button
 id prepared_yard_button
 id prepared_yard_image

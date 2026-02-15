@@ -17,6 +17,7 @@ public class ShopActivity extends AppCompatActivity {
     private TextView coinsDisplay;
     private boolean hasBoomCherry = false;
     private boolean hasPreparedYard = false;
+    private boolean hasPibbyVirus = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class ShopActivity extends AppCompatActivity {
         
         hasBoomCherry = prefs.getBoolean("has_boomcherry", false);
         hasPreparedYard = prefs.getBoolean("has_prepared_yard", false);
+        hasPibbyVirus = prefs.getBoolean("has_pibby_virus", false);
         
         // Close button
         ImageButton closeButton = findViewById(R.id.close_button);
@@ -90,6 +92,33 @@ public class ShopActivity extends AppCompatActivity {
                     hasPreparedYard = true;
                     preparedYardButton.setText("КУПЛЕНО");
                     preparedYardButton.setEnabled(false);
+                    updateCoinsDisplay();
+                    Toast.makeText(ShopActivity.this, "Успешно куплено!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ShopActivity.this, "Недостаточно монет!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        
+        // Pibby Virus card
+        Button pibbyButton = findViewById(R.id.pibby_button);
+        if (hasPibbyVirus) {
+            pibbyButton.setText("КУПЛЕНО");
+            pibbyButton.setEnabled(false);
+        } else {
+            pibbyButton.setText("КУПИТЬ (500 монет)");
+            pibbyButton.setOnClickListener(v -> {
+                int coins = prefs.getInt("coins", 0);
+                if (coins >= 500) {
+                    // Покупка
+                    prefs.edit()
+                            .putInt("coins", coins - 500)
+                            .putBoolean("has_pibby_virus", true)
+                            .commit();
+                    
+                    hasPibbyVirus = true;
+                    pibbyButton.setText("КУПЛЕНО");
+                    pibbyButton.setEnabled(false);
                     updateCoinsDisplay();
                     Toast.makeText(ShopActivity.this, "Успешно куплено!", Toast.LENGTH_SHORT).show();
                 } else {

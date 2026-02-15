@@ -44,6 +44,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
     private boolean gameOver = false;
     private boolean levelComplete = false;
     private boolean hasBoomCherry = false;
+    private boolean hasPibbyVirus = false;
     private String mapType = "default"; // default или prepared_yard
     private long zombieSpawnCooldown = 5000; // базовое значение 5 сек
     private int maxZombies = 8;  // максимум зомби
@@ -84,6 +85,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
         // Загрузить статус BoomCherry
         SharedPreferences prefs = getContext().getSharedPreferences("game_data", Context.MODE_PRIVATE);
         hasBoomCherry = prefs.getBoolean("has_boomcherry", false);
+        hasPibbyVirus = prefs.getBoolean("has_pibby_virus", false);
         
         // Большие клеточки - 9x5 сетка под фото
         CELL_SIZE = (int) (screenHeight * 0.15f);
@@ -173,6 +175,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
                                               (p.y - zombie.y) * (p.y - zombie.y));
                 if (dist < 30) {
                     zombie.takeDamage(p.damage);
+                    
+                    // Если это чёрная пуля (BlackPea), отравить зомби
+                    if (p instanceof BlackPea) {
+                        zombie.poison();
+                    }
+                    
                     hit = true;
                     break;
                 }
@@ -333,6 +341,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
                 paint.setTextSize(20);
                 canvas.drawText("BoomCh", buttonX3 + 25, buttonY + 60, paint);
             }
+            
+            if (hasPibbyVirus) {
+                paint.setColor(0xFF880088); // фиолетовый
+                int buttonX5 = 740;
+                canvas.drawRect(buttonX5, buttonY, buttonX5 + buttonWidth, buttonY + buttonHeight, paint);
+                paint.setColor(Color.WHITE);
+                paint.setTextSize(16);
+                canvas.drawText("Pibby", buttonX5 + 35, buttonY + 60, paint);
+            }
 
             holder.unlockCanvasAndPost(canvas);
         }
@@ -377,6 +394,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
             // Bomb - вторая позиция на 560
             if (x > 560 && x < 710 && y > 20 && y < 100) {
                 selectedPlant = "bomb";
+                return true;
+            }
+            // Pibby Virus - позиция 740
+            if (hasPibbyVirus && x > 740 && x < 890 && y > 20 && y < 100) {
+                selectedPlant = "pibby";
                 return true;
             }
 
@@ -431,6 +453,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
             if (hasBoomCherry && sun >= 200) {
                 plants.add(new BoomCherry(col, row, OFFSET_X + col * CELL_SIZE + CELL_SIZE / 2, OFFSET_Y + row * CELL_SIZE + CELL_SIZE / 2, this));
                 sun -= 200;
+            }
+        } else if (selectedPlant.equals("pibby")) {
+            if (hasPibbyVirus && sun >= 550) {
+                plants.add(new PibbyVirus(col, row, OFFSET_X + col * CELL_SIZE + CELL_SIZE / 2, OFFSET_Y + row * CELL_SIZE + CELL_SIZE / 2, getResources()));
+                sun -= 550;
             }
         }
     }

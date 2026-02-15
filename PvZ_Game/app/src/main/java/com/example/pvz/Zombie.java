@@ -15,6 +15,12 @@ public class Zombie {
     private Plant targetPlant;
     private boolean eating = false;
     private GifDrawable gifDrawable;
+    
+    // Статус отравления
+    private boolean poisoned = false;
+    private long poisonedTime = 0;
+    private static final long POISON_DURATION = 8000; // 8 сек отравления
+    private static final float POISON_SPEED_MULTIPLIER = 0.3f; // 30% от обычной скорости
 
     public Zombie(float x, float y, int row, GameView gameView) {
         this.x = x;
@@ -30,10 +36,20 @@ public class Zombie {
     }
 
     public void update(GameView gameView) {
+        // Проверить окончание отравления
+        if (poisoned) {
+            long now = System.currentTimeMillis();
+            if (now - poisonedTime > POISON_DURATION) {
+                poisoned = false;
+            }
+        }
+        
         if (eating && targetPlant != null && targetPlant.hp > 0) {
             targetPlant.takeDamage(10);
         } else {
-            x -= speed / 60.0f;
+            // Учитывать замедление если отравлен
+            float currentSpeed = poisoned ? (speed * POISON_SPEED_MULTIPLIER) : speed;
+            x -= currentSpeed / 60.0f;
             eating = false;
 
             List<Plant> plants = gameView.getPlants();
@@ -52,6 +68,13 @@ public class Zombie {
             // Увеличен в два раза: 80x80 -> 160x160
             gifDrawable.setBounds((int)(x - 80), (int)(y - 80), (int)(x + 80), (int)(y + 80));
             gifDrawable.draw(canvas);
+            
+            // Рисовать фиолетовый оверлей если отравлен
+            if (poisoned) {
+                paint.setColor(0x7700AA00); // фиолетовый с прозрачностью
+                paint.setStyle(Paint.Style.FILL);
+                canvas.drawRect(x - 80, y - 80, x + 80, y + 80, paint);
+            }
         } else {
             // Fallback если gif не загрузилась
             paint.setColor(Color.GRAY);
@@ -64,5 +87,14 @@ public class Zombie {
 
     public void takeDamage(int amount) {
         hp -= amount;
+    }
+    
+    public void poison() {
+        poisoned = true;
+        poisonedTime = System.currentTimeMillis();
+    }
+    
+    public boolean isPoisoned() {
+        return poisoned;
     }
 }
