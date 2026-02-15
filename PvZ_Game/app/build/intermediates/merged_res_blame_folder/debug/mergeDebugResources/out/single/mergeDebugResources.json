@@ -44,6 +44,10 @@
         "source": "/home/codespace/.gradle/daemon/9.2.1/com.example.pvz.app-main-23:/layout/activity_shop.xml"
     },
     {
+        "merged": "com.example.pvz.app-debug-21:/layout_activity_select_map.xml.flat",
+        "source": "com.example.pvz.app-main-23:/layout/activity_select_map.xml"
+    },
+    {
         "merged": "/home/codespace/.gradle/daemon/9.2.1/com.example.pvz.app-debug-21:/mipmap-hdpi_ic_launcher.jpg.flat",
         "source": "/home/codespace/.gradle/daemon/9.2.1/com.example.pvz.app-main-23:/mipmap-hdpi/ic_launcher.jpg"
     },
@@ -70,10 +74,6 @@
     {
         "merged": "/home/codespace/.gradle/daemon/9.2.1/com.example.pvz.app-debug-21:/drawable_map_bg.png.flat",
         "source": "/home/codespace/.gradle/daemon/9.2.1/com.example.pvz.app-main-23:/drawable/map_bg.png"
-    },
-    {
-        "merged": "com.example.pvz.app-debug-21:/layout_activity_shop.xml.flat",
-        "source": "com.example.pvz.app-main-23:/layout/activity_shop.xml"
     },
     {
         "merged": "/home/codespace/.gradle/daemon/9.2.1/com.example.pvz.app-debug-21:/drawable_prepared_yard_bg.png.flat",
